@@ -8,7 +8,9 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:engine": "rm -rf node_modules/.tmp-engine && tsc --outDir node_modules/.tmp-engine --module commonjs --moduleResolution node --target ES2020 --rootDir src/data/profile-ab src/data/profile-ab/engine.test.ts && node node_modules/.tmp-engine/engine.test.js",
+    "test:store": "rm -rf node_modules/.tmp-store && tsc --outDir node_modules/.tmp-store --module commonjs --moduleResolution node --target ES2020 --rootDir src/data/profile-ab src/data/profile-ab/store.smoke.ts && node node_modules/.tmp-store/store.smoke.js"
   },
   "dependencies": {
     "react": "^18.3.1",
